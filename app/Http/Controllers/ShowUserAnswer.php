@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\UserAnswer;
 use Illuminate\Http\Request;
 
-class AddAnotherQuestionController extends Controller
+class ShowUserAnswer extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class AddAnotherQuestionController extends Controller
      */
     public function index()
     {
-        return view('addAnotherQuestionMenu');
+        $userAnswer = UserAnswer::all();
+        return view("admin/viewReponses")->with('userAnswer', $userAnswer);
     }
 
     /**

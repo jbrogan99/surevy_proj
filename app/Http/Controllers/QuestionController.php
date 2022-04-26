@@ -18,7 +18,6 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //    return view('createQuestionaire');
     }
 
     /**
@@ -28,10 +27,10 @@ class QuestionController extends Controller
      */
     public function create(Request $request)
     {
-        $numberOfSavedQuestions = DB::table('questions')
-            ->where('questionaire_id', '=', $request->id)
+        $numberOfSavedQuestions = DB::table('questions') //get questions table from db
+            ->where('questionaire_id', '=', $request->id) // questionaire id from db is equal to the request id
             ->get();
-        return view('createQuestion', ['numberOfSavedQuestions' => $numberOfSavedQuestions]);
+        return view('admin/createQuestion', ['numberOfSavedQuestions' => $numberOfSavedQuestions]); // assigning variable to the string
     }
 
     /**
@@ -43,14 +42,13 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
 
-        // $questionaire = Questionaire::
-        $input = $request->all();
-        error_log($request);
-        error_log('help');
-        Log::emergency($request);
-        Log::emergency('hello');
+        $this->validate($request, [ //validation min / max word count
+            'question_title' => 'min:5|max:400'
+
+        ]);
+        $input = $request->all(); // get all requests 
         $questionTitle = Question::create($input);
-        return redirect()->route('questionOption', ['id' => $questionTitle->id, 'questionaire_id' => $questionTitle->questionaire_id]);
+        return redirect()->route('questionOption', ['id' => $questionTitle->id, 'questionaire_id' => $questionTitle->questionaire_id]); // accessing varibales properties and assigning them to string 
     }
 
     /**

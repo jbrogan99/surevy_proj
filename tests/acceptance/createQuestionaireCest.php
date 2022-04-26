@@ -21,16 +21,13 @@ class createQuestionaireCest
         $I->see('View responses');
         $I->click('Create Survey');
         //title page 
-        $I->amOnPage('/surveyTitlePage');
-        $I->see('Survey Title');
-        $I->fillField('survey_title', 'test');
+        $I->amOnPage('questionaireTitle/create');
+        $I->see('Add Questionaire Title:');
+        $I->fillField('title_input', 'test');
         $I->click('submit');
         //survey creatation page
-        $I->amOnPage('/surveyCreationPage');
-        $I->see('Q1');
-        $I->see('A');
-        $I->see('Choice A');
-        $I->see('B');
-        $I->see('Choice B');
+        $I->amOnPage('question/createQuestion');
+        $I->fillField('question_title', 'test');
+        $I->click('submit');
     }
 }

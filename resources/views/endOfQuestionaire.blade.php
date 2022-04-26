@@ -17,16 +17,13 @@
     </style>
 </head>
 
-<body id="center_body">
-    <div id="surevy_title_container">
-        <h2 id="s_title">Survey Title</h2>
-        <form method="post" action="/questionaireTitle/create" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <input type="text" id="title_input" placeholder="Add title here" name="title">
-            <button type="submit" value="submit">submit </button>
-        </form>
+<body>
+    <div class="surevy_main_container">
+        <div class="surevy_title_container">
+            <h1>Thank you for completing the Questionnaire!!</h1>
+        </div>
 
-    </div>
+
 
 
 </body>

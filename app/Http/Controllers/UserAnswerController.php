@@ -18,25 +18,9 @@ class UserAnswerController extends Controller
      */
     public function index($questionaireId, $questionId, $questionOptionId)
     {
-        //dd(intval($id));
-        $questionaires = Questionaire::find($questionaireId);
+        $questionaires = Questionaire::find($questionaireId); // assign id from all models to variables
         $question = Question::find($questionId);
         $questionOption = QuestionOption::find($questionOptionId);
-        // dd($questionaires);
-        // $questionaire = DB::table('questionaires')
-        //     ->where('id', '=', $id)
-        //     ->get();
-
-        // $questionaireTitle = $questionaire[0]->title;
-
-        // $questionaireModel = new Questionaire;
-        // $questionModel = new Question;
-        // $question = $questionModel->question($questionId);
-
-        // $questionOptionModel = new QuestionOption();
-        // $questionOptions = $questionOptionModel->questionOptions($questionId);
-        // $questionOptions = $questionaireModel->questions(
-        //dd($questionaires)$
         return view('questionaire_answers')->with(['questionaire' => $questionaires, 'question' => $question, 'questionOption' => $questionOption]);
     }
 
@@ -59,23 +43,17 @@ class UserAnswerController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        // $answer = new UserAnswer;
-        // $answer->questionaire_id = $requequestionaire_id;
-        // $answer->question_id = $question_id;
-        // $answer->answer = $request->answer;
-        // dd($answer->all());
         $new_question_option_id = null;
         UserAnswer::create($request->all());
-        $allQuestionOptions = QuestionOption::orderBy('id', 'asc')->get();
-        for ($x = 0; $x < count($allQuestionOptions) - 1; $x++) {
-            if ($allQuestionOptions[$x]->id == $request->question_option_id) {
+        $allQuestionOptions = QuestionOption::orderBy('id', 'asc')->get(); //order id by ascending order
+        for ($x = 0; $x < count($allQuestionOptions) - 1; $x++) { // get the last ID
+            if ($allQuestionOptions[$x]->id == $request->question_option_id) { //if id from questionoption model is equal to the request question_option_id
                 $new_question_option_id = $allQuestionOptions[$x + 1];
             }
         }
 
-        if ($new_question_option_id == null) {
-            return  redirect()->route('optionMenu');
+        if ($new_question_option_id == null) { // if the user completes all questions 
+            return  redirect()->route('endOfQuestionaire');
         }
 
         return  redirect()->route('getUserAnswer', ['questionaireId' => $request->questionaire_id, 'questionId' => $request->question_id, 'questionOptionId' => $new_question_option_id]);

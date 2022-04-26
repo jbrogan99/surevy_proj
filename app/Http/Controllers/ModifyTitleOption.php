@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Questionaire;
+use App\Questionaire; //importing model 
 use Illuminate\Http\Request;
 
 class ModifyTitleOption extends Controller
@@ -14,9 +14,9 @@ class ModifyTitleOption extends Controller
      */
     public function index()
     {
-        $questionaire = Questionaire::all();
+        $questionaire = Questionaire::all(); // gets all model attributes
 
-        return view('modifyExistingQuestionaire')->with('questionaire', $questionaire);
+        return view('admin/modifyExistingQuestionaire')->with('questionaire', $questionaire); //assigns string to variable 
     }
 
     /**

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Questionaire;
 
-class QuestionaireTitleController extends Controller
+class endOfQuestionaireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class QuestionaireTitleController extends Controller
      */
     public function index()
     {
-        $questionaire_title = questionaire::all();
-        return view('admin/modifyTitle')->with('questionaire_title', $questionaire_title);
+        return view('/endOfQuestionaire');
     }
 
     /**
@@ -25,8 +23,7 @@ class QuestionaireTitleController extends Controller
      */
     public function create()
     {
-
-        return view('admin/createQuestionaireTitle');
+        //
     }
 
     /**
@@ -37,16 +34,7 @@ class QuestionaireTitleController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            'title' => 'min:5|max:255'
-
-        ]);
-
-        $input = $request->all();
-
-        $questionaire = Questionaire::create($input);
-        return redirect()->route('question', ['id' => $questionaire->id]);
+        //
     }
 
     /**
@@ -91,11 +79,6 @@ class QuestionaireTitleController extends Controller
      */
     public function destroy($id)
     {
-        $questionaire = Questionaire::find($id); // find all ID in Questionaire model 
-        $questionaire->delete(); //delete from db
-
-        return redirect('modifyQuestionaire');
-
         //
     }
 }

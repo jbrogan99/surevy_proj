@@ -13,7 +13,7 @@ class OptionController extends Controller
      */
     public function index()
     {
-        return view('option');
+        return view('admin/option');
     }
 
     /**

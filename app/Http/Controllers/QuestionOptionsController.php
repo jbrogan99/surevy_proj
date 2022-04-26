@@ -24,7 +24,7 @@ class QuestionOptionsController extends Controller
      */
     public function create()
     {
-        return view('createQuestionOptions');
+        return view('admin/createQuestionOptions');
     }
 
     /**

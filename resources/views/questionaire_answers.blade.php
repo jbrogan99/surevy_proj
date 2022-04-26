@@ -17,27 +17,32 @@
     </style>
 </head>
 
-<body id="center_body">
-    <div id="surevy_title_container">
-        <h2 id="s_title">{{$questionaire->title}}</h2>
+<body>
+    <div class="surevy_main_container">
+        <div class="surevy_title_container">
+            <h1 id="answer_page_questionaire_title">{{$questionaire->title}}</h1>
 
-        {!! Form::open(['method' => 'POST', 'route' => ['createUserAnswer']]) !!}
+            {!! Form::open(['method' => 'POST', 'route' => ['createUserAnswer']]) !!}
+            <h2 id="answer_page_question_title">{{$question->question_title}}:</h2>
+            <div class="block">
+                <p id="answer_page_answer1">{{$questionOption->question_option}}</p>
+                {!! Form::radio('answer', '1'); !!}
+                <!--radio button for single selection -->
+            </div>
 
+            <div class="block">
+                <p id="answer_page_answer2">{{$questionOption->question_option2}}</p>
+                <input type="hidden" name="questionaire_id" value={{$questionaire->id}} <input type="hidden" name="question_id" value={{$question->id}} />
+                <input type="hidden" name="question_option_id" value={{$questionOption->id}} />
 
-        <h3>{{$question->question_title}}</h3>
+                {!! Form::radio('answer', '2'); !!}
+            </div>
 
-        <h4>{{$questionOption->question_option}}</h4>
-        {!! Form::radio('answer', '1'); !!}
-        <h4>{{$questionOption->question_option2}}</h4>
-        <input type="hidden" name="questionaire_id" value={{$questionaire->id}} />
-        <input type="hidden" name="question_id" value={{$question->id}} />
-        <input type="hidden" name="question_option_id" value={{$questionOption->id}} />
-        {!! Form::radio('answer', '2'); !!}
+            {!! Form::submit('Submit', ['class' => 'btn']) !!}
+            {!! Form::close() !!}
 
-        {!! Form::submit('Submit', ['class' => 'btn']) !!}
-        {!! Form::close() !!}
-
-
+        </div>
+        <!--hidden fields to store the values of the id's-->
 
 
 

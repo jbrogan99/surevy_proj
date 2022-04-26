@@ -22,10 +22,16 @@ a:hover {
     color: rgb(164, 164, 164);
 }
 
-#surevy_title_container {
+.surevy_main_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+.surevy_title_container {
+    width: 70%;
     border: 1px solid black;
     padding: 30px;
-    width: 30%;
+    text-align: center;
 }
 
 #center_body {
@@ -33,11 +39,11 @@ a:hover {
     justify-content: center;
     margin-top: 100px;
 }
-
+/* 
 #create_q_body {
     display: flex;
     justify-content: center;
-}
+} */
 
 #answer_2 {
     margin-bottom: 10px;
@@ -47,13 +53,13 @@ a:hover {
     width: 50%;
 }
 
-#container_questionaire1 {
+/* #container_questionaire1 {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-}
+} */
 
 #container_questionaire2,
 #container_questionaire3,
@@ -84,6 +90,8 @@ button#finish_survey {
 }
 
 #survey_title_table,
+#responses_table,
+#modify_questionaire_table,
 th,
 td {
     border: 1px solid black;
@@ -91,8 +99,55 @@ td {
     gap: 20px;
 }
 
+.title_input {
+    height: 35px;
+    width: 60%;
+}
+
 th,
 td {
     padding: 15px;
     text-align: left;
+}
+#responses_table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.table_container {
+    display: flex;
+    justify-content: center;
+}
+
+th,
+#s_title {
+    font-size: 25px;
+}
+
+td {
+    font-size: 20px;
+}
+
+#response_title,
+#modify_title {
+    margin-top: 70px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(220, 246, 255);
+}
+
+.answer_options {
+    margin-bottom: 10px;
+}
+
+#title_input_id {
+    margin-bottom: 10px;
+}
+
+.block {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
 }

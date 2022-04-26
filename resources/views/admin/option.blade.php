@@ -25,7 +25,9 @@
         <a href="/modifyQuestionaire">
             <h1 id="modify_survey" class="options">Modify Existing Survey</h1>
         </a>
-        <h1 id="responses" class="options">View Responses</h1>
+        <a href="/viewResponses">
+            <h1 id="responses" class="options">View Responses</h1>
+        </a>
     </div>
 
 
