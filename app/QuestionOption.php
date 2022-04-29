@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class QuestionOption extends Model
 {
@@ -11,7 +12,6 @@ class QuestionOption extends Model
         'question_option',
         'question_option2',
         'question_id'
-
     ];
 
     public function questionTitle()

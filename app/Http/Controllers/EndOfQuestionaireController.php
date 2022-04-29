@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\UserAnswer;
 use Illuminate\Http\Request;
 
-class ShowUserAnswer extends Controller
+class EndOfQuestionaireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,6 @@ class ShowUserAnswer extends Controller
      */
     public function index()
     {
-        $userAnswer = UserAnswer::all();
-        return view("admin/viewReponses")->with('userAnswer', $userAnswer);
+        return view('/endOfQuestionaire'); //return to endOfQuestionaire page
     }
 }

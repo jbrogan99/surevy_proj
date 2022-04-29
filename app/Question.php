@@ -23,10 +23,21 @@ class Question extends Model
         return $this->belongsTo('App\Questionaire');
     }
 
+    // this function will return the question with the given id
     public function question($id)
     {
         return DB::table('questions')
             ->where('id', '=', $id)
             ->get();
+    }
+
+    // get all questions for a given questionaire id
+    public static function getQuestions($questionaireId)
+    {
+        $questions = DB::table('questions')
+            ->where('questionaire_id', '=', $questionaireId)
+            ->get();
+
+        return $questions;
     }
 }

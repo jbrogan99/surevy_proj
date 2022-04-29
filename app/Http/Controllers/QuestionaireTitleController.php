@@ -14,8 +14,8 @@ class QuestionaireTitleController extends Controller
      */
     public function index()
     {
-        $questionaire_title = questionaire::all();
-        return view('admin/modifyTitle')->with('questionaire_title', $questionaire_title);
+        // $questionaire_title = questionaire::all();
+        // return view('admin/modifyTitle')->with('questionaire_title', $questionaire_title);
     }
 
     /**
@@ -25,7 +25,6 @@ class QuestionaireTitleController extends Controller
      */
     public function create()
     {
-
         return view('admin/createQuestionaireTitle');
     }
 
@@ -40,47 +39,11 @@ class QuestionaireTitleController extends Controller
 
         $this->validate($request, [
             'title' => 'min:5|max:255'
-
         ]);
 
         $input = $request->all();
-
         $questionaire = Questionaire::create($input);
         return redirect()->route('question', ['id' => $questionaire->id]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**

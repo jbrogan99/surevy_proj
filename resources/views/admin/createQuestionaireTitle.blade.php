@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <a href="/option"><img src="/img/back.jpg" width="200px"> </a>
+    <a href="/option"><img src="/img/back.jpg" id="back_img_title_page" width="200px"> </a>
     @if ($errors->any())
     <div>
         <ul class="alert alert-danger">
@@ -35,7 +35,9 @@
 
             <form method="post" action="/questionaireTitle/create" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input type="text" class="title_input" placeholder="Add title here" name="title">
+                <label for="title">
+                    <input type="text" class="title_input" placeholder="Add title here" name="title">
+                </label>
                 <button type="submit" value="submit">submit </button>
             </form>
 

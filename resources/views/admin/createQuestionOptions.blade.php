@@ -25,7 +25,7 @@
                 <div id="container_questionaire1">
                     <h4>Enter Answer:</h4>
                     <div id="container_answers">
-                        <label for="question_option2" name="question_option"> Answer 1:
+                        <label for="question_option" name="question_option"> Answer 1:
                             <input type="text" id="question_option" class="answer_options" placeholder="Add Answer" name="question_option">
                         </label><br>
                         <label for="question_option2"> Answer 2:
@@ -34,7 +34,7 @@
 
                         <input type="hidden" id="question_id" name="question_id">
                         <input type="hidden" id="questionaire_id" name="questionaire_id">
-                        <input type="submit" id="submit_answer" value="submit">
+                        <input type="submit" id="submit_answer" onvalue="submit">
             </form>
         </div>
     </div>
@@ -50,6 +50,8 @@
         question_id.setAttribute('value', id); // sets the value of id to value variable 
         var questionaire_id_element = document.getElementById('questionaire_id'); // gets questionaire id (just element)
         questionaire_id_element.setAttribute('value', questionaire_id); // sets the value of questionaire_id to value varible 
+
+        var submit = document.getElementById("submit_answer");
     </script>
 
 </body>

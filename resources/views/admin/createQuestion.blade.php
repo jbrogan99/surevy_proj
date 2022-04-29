@@ -42,19 +42,14 @@
                     <input type="submit" id="submit_questionaire" value="submit">
 
             </form>
-
-
         </div>
-
         @if (count($numberOfSavedQuestions) > 0)
+        <!--ensures the user has completed at least 1 questionaire -->
         <label for="end_questionaire">End questionnaire
             <a href="/option"> <button>End</button> </a>
         </label>
         @endif
     </div>
-
-
-
 
     <script type="text/javascript">
         const queryString = window.location.search;

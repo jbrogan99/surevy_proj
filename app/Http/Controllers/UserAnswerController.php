@@ -16,10 +16,10 @@ class UserAnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($questionaireId, $questionId, $questionOptionId)
+    public function index($questionaireId, $questionId, $questionOptionId) //ID paramaters
     {
         $questionaires = Questionaire::find($questionaireId); // assign id from all models to variables
-        $question = Question::find($questionId);
+        $question = Question::find($questionId); // returns the model that has a primary key matching the given key
         $questionOption = QuestionOption::find($questionOptionId);
         return view('questionaire_answers')->with(['questionaire' => $questionaires, 'question' => $question, 'questionOption' => $questionOption]);
     }
@@ -31,8 +31,7 @@ class UserAnswerController extends Controller
      */
     public function create()
     {
-
-        return view('createQuestionaireTitle');
+        return view('createQuestionaireTitle'); //return to createQuestionaireTitle page
     }
 
     /**
@@ -43,54 +42,22 @@ class UserAnswerController extends Controller
      */
     public function store(Request $request)
     {
+
         $new_question_option_id = null;
         UserAnswer::create($request->all());
+
         $allQuestionOptions = QuestionOption::orderBy('id', 'asc')->get(); //order id by ascending order
         for ($x = 0; $x < count($allQuestionOptions) - 1; $x++) { // get the last ID
             if ($allQuestionOptions[$x]->id == $request->question_option_id) { //if id from questionoption model is equal to the request question_option_id
-                $new_question_option_id = $allQuestionOptions[$x + 1];
+                $new_question_option_id = $allQuestionOptions[$x + 1]; //adds 1 to the new questionaire ID
             }
         }
 
         if ($new_question_option_id == null) { // if the user completes all questions 
-            return  redirect()->route('endOfQuestionaire');
+            return  redirect()->route('endOfQuestionaire'); // redirect to endOfQuestionaire page
         }
 
         return  redirect()->route('getUserAnswer', ['questionaireId' => $request->questionaire_id, 'questionId' => $request->question_id, 'questionOptionId' => $new_question_option_id]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
@@ -105,7 +72,5 @@ class UserAnswerController extends Controller
         $questionaire->delete();
 
         return redirect('/modifyQuestionaire');
-
-        //
     }
 }

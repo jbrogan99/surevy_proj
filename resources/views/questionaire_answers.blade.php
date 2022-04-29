@@ -32,8 +32,9 @@
 
             <div class="block">
                 <p id="answer_page_answer2">{{$questionOption->question_option2}}</p>
-                <input type="hidden" name="questionaire_id" value={{$questionaire->id}} <input type="hidden" name="question_id" value={{$question->id}} />
+                <input type="hidden" name="questionaire_id" value={{$questionaire->id}} />
                 <input type="hidden" name="question_option_id" value={{$questionOption->id}} />
+                <input type="hidden" name="question_id" value={{$question->id}} />
 
                 {!! Form::radio('answer', '2'); !!}
             </div>
