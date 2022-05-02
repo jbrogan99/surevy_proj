@@ -25,8 +25,15 @@ Route::get('/modifyQuestionaire', 'ModifyTitleOption@index')->name('modifyExisti
 Route::get('/useranswer/{questionaireId}/{questionId}/{questionOptionId}', 'UserAnswerController@index')->name('getUserAnswer');
 Route::post('/useranswer/create', 'UserAnswerController@store')->name('createUserAnswer');
 Route::delete('/questionaireTitle/delete/{id}', 'QuestionaireTitleController@destroy')->name('deleteQuestionaire');
-Route::get('/viewResponses', 'ShowUserAnswer@index')->name('viewResponses');
+Route::get('/viewResponses', 'QuestionaireTitleController@index')->name('viewResponses');
 Route::get('/endOfQuestionaire', 'EndOfQuestionaireController@index')->name('endOfQuestionaire');
 Route::get('/questionaireTitle', 'QuestionaireTitleController@index');
 Route::get('/questionaireTitle/create', 'QuestionaireTitleController@create');
 Route::post('/questionaireTitle/create', 'QuestionaireTitleController@store');
+
+Route::get('/register', 'RegisterController@create');
+Route::post('register', 'RegisterController@store');
+
+Route::get('/login', 'SessionController@create');
+Route::post('/login', 'SessionController@store');
+Route::get('/logout', 'SessionController@destroy');

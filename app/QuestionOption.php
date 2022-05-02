@@ -18,4 +18,9 @@ class QuestionOption extends Model
     {
         return $this->belongsTo('App\Question');
     }
+
+    public function userAnswer()
+    {
+        return $this->hasOne('App\UserAnswer');
+    }
 }

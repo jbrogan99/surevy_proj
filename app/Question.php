@@ -18,7 +18,7 @@ class Question extends Model
         return $this->hasMany('App\QuestionOption');
     }
 
-    public function questionTitle()
+    public function questionaire()
     {
         return $this->belongsTo('App\Questionaire');
     }
@@ -36,8 +36,26 @@ class Question extends Model
     {
         $questions = DB::table('questions')
             ->where('questionaire_id', '=', $questionaireId)
+            ->orderBy('id', 'asc')
             ->get();
 
         return $questions;
+    }
+
+    // The next question id will be the one after the current question 
+    // because each questions id is numerically bigger than the last one.
+    // An easier way would have been to add another column the questions table
+    // which points to the ID of the next question. Didn't have time.
+    public static function getNextQuestionId($questionId, $questionaireId)
+    {
+        $questions = Question::getQuestions($questionaireId);
+        $nextQuestionId = null;
+        for ($x = 0; $x < count($questions) - 1; $x++) {
+            if ($questions[$x]->id == $questionId) {
+                $nextQuestionId = $questions[$x + 1]->id;
+            }
+        };
+
+        return $nextQuestionId;
     }
 }

@@ -23,7 +23,7 @@ class createQuestionaireCest
         $I->see('View responses');
         $I->click('Create Survey');
         //title page 
-        $I->amOnPage('/questionaireTitle/create');
+        $I->amOnPage('questionaireTitle/create');
         $I->see('Add Questionaire Title:');
         $I->fillField('title', 'test');
         $I->click(['id' => 'back_img_title_page']);
@@ -58,6 +58,11 @@ class createQuestionaireCest
         $I->see('Modify Questionaire', 'h1');
         $I->see('Questionnaire Title');
         $I->see('Delete Questionnaire');
-        $I->click('submit');
+        $I->click('input');
+
+        //responses page
+        $I->amOnPage('/viewResponses');
+        $I->seeElement('//img[@src="/img/back.jpg"]');
+        $I->see('Responses', 'h1');
     }
 }

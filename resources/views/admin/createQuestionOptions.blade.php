@@ -18,6 +18,15 @@
 </head>
 
 <body id="create_q_body">
+    @if ($errors->any())
+    <div>
+        <ul class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="surevy_main_container">
         <div class="surevy_title_container">
             <form method="post" action="/questionOptions/createOption" enctype="multipart/form-data">

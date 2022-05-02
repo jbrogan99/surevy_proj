@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Laravel</title>
 
     <!-- Fonts -->
@@ -12,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/option.css') }}">
     <!-- Styles -->
     <style>
-
 
     </style>
 </head>
@@ -24,21 +22,30 @@
         <table id="responses_table">
             <thead>
                 <tr>
-                    <th>Questionnaire ID</th>
-                    <th>Question ID</th>
-                    <th>Question Option ID</th>
-                    <th>Answer (1 or 2)</th>
+                    <th>Questionnaire</th>
+                    <th>Question</th>
+                    <th>Question Option 1</th>
+                    <th>Question Option 2</th>
+                    <th>Answer</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($userAnswer as $inst)
                 <tr>
-                    <!--extracts each property from userAnswers model-->
-                    <td>{{ $inst->questionaire_id}}</td>
-                    <td>{{ $inst->question_id}} </td>
-                    <td>{{ $inst->question_option_id}} </td>
-                    <td>{{ $inst->answer}} </td>
+                    @foreach($questionaires as $questionaire)
+
+                    @foreach($questionaire->question as $question)
+                    <td>{{ $questionaire->title}}</td>
+                    <td>{{ $question->question_title}}</td>
+                    @foreach($question->questionOptions as $questionOption)
+                    <td>{{ $questionOption->question_option}}</td>
+                    <td>{{ $questionOption->question_option2}}</td>
+                    @if(is_null($questionOption->userAnswer))
+                    @else
+                    <td>{{ $questionOption->userAnswer->answer}}</td>
                 </tr>
+                @endif
+                @endforeach
+                @endforeach
                 @endforeach
 
 

@@ -46,18 +46,21 @@ class UserAnswerController extends Controller
         $new_question_option_id = null;
         UserAnswer::create($request->all());
 
-        $allQuestionOptions = QuestionOption::orderBy('id', 'asc')->get(); //order id by ascending order
-        for ($x = 0; $x < count($allQuestionOptions) - 1; $x++) { // get the last ID
-            if ($allQuestionOptions[$x]->id == $request->question_option_id) { //if id from questionoption model is equal to the request question_option_id
-                $new_question_option_id = $allQuestionOptions[$x + 1]; //adds 1 to the new questionaire ID
+        $allQuestionOptions = QuestionOption::orderBy('id', 'asc')->get();
+
+        for ($x = 0; $x < count($allQuestionOptions) - 1; $x++) {
+            if ($allQuestionOptions[$x]->id == $request->question_option_id) {
+                $new_question_option_id = $allQuestionOptions[$x + 1];
             }
         }
 
-        if ($new_question_option_id == null) { // if the user completes all questions 
-            return  redirect()->route('endOfQuestionaire'); // redirect to endOfQuestionaire page
+        $questionId = Question::getNextQuestionId($request->question_id, $request->questionaire_id);
+
+        if ($questionId == null) {
+            return  redirect()->route('endOfQuestionaire');
         }
 
-        return  redirect()->route('getUserAnswer', ['questionaireId' => $request->questionaire_id, 'questionId' => $request->question_id, 'questionOptionId' => $new_question_option_id]);
+        return  redirect()->route('getUserAnswer', ['questionaireId' => $request->questionaire_id, 'questionId' => $questionId, 'questionOptionId' => $new_question_option_id]);
     }
 
     /**

@@ -14,4 +14,9 @@ class UserAnswer extends Model
         'answer'
 
     ];
+
+    public function questionOption()
+    {
+        return $this->belongsTo('App\QuestionOption');
+    }
 }

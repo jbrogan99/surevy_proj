@@ -31,10 +31,10 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [ //validation min / max word count
             'question_title' => 'min:5|max:400'
         ]);
+
         $input = $request->all(); // get all requests 
         $questionTitle = Question::create($input);
         return redirect()->route('questionOption', ['id' => $questionTitle->id, 'questionaire_id' => $questionTitle->questionaire_id]); // redirect user to question option page with required ids
