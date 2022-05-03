@@ -30,19 +30,23 @@
                 </tr>
             </thead>
             <tbody>
+
+                @foreach($questionaires as $questionaire)
+                @foreach($questionaire->question as $question)
+                @foreach($question->questionOptions as $questionOption)
+                @foreach($questionOption->userAnswer as $userAnswer)
                 <tr>
-                    @foreach($questionaires as $questionaire)
-                    @foreach($questionaire->question as $question)
                     <td>{{ $questionaire->title}}</td>
                     <td>{{ $question->question_title}}</td>
-                    @foreach($question->questionOptions as $questionOption)
                     <td>{{ $questionOption->question_option}}</td>
                     <td>{{ $questionOption->question_option2}}</td>
-                    @if(is_null($questionOption->userAnswer))
+                    @if(is_null($userAnswer))
                     @else
-                    <td>{{ $questionOption->userAnswer->answer}}</td>
+                    <td>{{ $userAnswer->answer}}</td>
                     @endif
                 </tr>
+                @endforeach
+
                 @endforeach
                 @endforeach
                 @endforeach

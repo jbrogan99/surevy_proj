@@ -21,6 +21,6 @@ class QuestionOption extends Model
 
     public function userAnswer()
     {
-        return $this->hasOne('App\UserAnswer');
+        return $this->hasMany('App\UserAnswer');
     }
 }

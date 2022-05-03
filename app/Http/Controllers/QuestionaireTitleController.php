@@ -16,7 +16,7 @@ class QuestionaireTitleController extends Controller
     {
         $questionaire = new Questionaire();
         $questionaires = $questionaire->questionaires();
-        // dd($questionaires);
+        //dd($questionaires);
         return view('admin/viewResponses')->with('questionaires', $questionaires);
     }
 
