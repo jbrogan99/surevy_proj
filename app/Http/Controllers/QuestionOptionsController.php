@@ -25,14 +25,6 @@ class QuestionOptionsController extends Controller
      */
     public function store(Request $request)
     {
-        //     $option1 = $request->question_option;
-        //     $option2 = $request->question_option2;
-        //     dd($request);
-        //     if ($option1 || $option2 == "") {
-        //         return false;
-        //     } else {
-        //         return ('/endOfQuestionaire');
-        //     }
 
         $this->validate($request, [ //validation min / max word count
             'question_option' => 'min:2|max:100',
@@ -40,10 +32,7 @@ class QuestionOptionsController extends Controller
         ]);
         $input = $request->all();
         QuestionOption::create($input);
-        // $option_one = $request->question_option;
-        // if ($option_one == "") {
-        //     return view('/endOfQuestionaire');
-        // }
+
 
 
         return redirect()->route('question', ['id' => $request->questionaire_id]);

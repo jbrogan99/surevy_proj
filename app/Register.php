@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Register extends Authenticatable
 {
-
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -29,8 +30,8 @@ class Register extends Authenticatable
     /**
      * Add a mutator to ensure hashed passwords
      */
-    // public function setPasswordAttribute($password)
-    // {
-    //     $this->attributes['password'] = bcrypt($password);
-    // }
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Register;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
+
     public function create()
     {
         return view('admin/createSession');
@@ -13,11 +17,14 @@ class SessionController extends Controller
 
     public function store()
     {
+
         if (auth()->attempt(request(['email', 'password'])) == false) {
-            return redirect()->to('/login');
-        } else {
-            return redirect()->route('optionMenu');
+            return back()->withErrors([
+                'message' => 'Your email or password is incorrect '
+            ]);
         }
+
+        return redirect()->to('/option');
     }
 
     public function destroy()

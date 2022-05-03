@@ -18,19 +18,17 @@
 </head>
 
 <body id="center_body">
-    <ul class="navbar-nav mr-auto">
-        @if( auth()->check() )
-        <li class="nav-item">
-            <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
-        </li>
-        @endif
-    </ul>
+
     <div id="login_container">
         <a href="/option">
             <h1 class="options">dashboard</h1>
         </a>
-        <h1 class="options">Login</h1>
-        <h1 class="options">Create Account</h1>
+        <a href="/login">
+            <h1 class="options">Login</h1>
+        </a>
+        <a href="/register">
+            <h1 class="options">Create Account</h1>
+        </a>
     </div>
 </body>
 

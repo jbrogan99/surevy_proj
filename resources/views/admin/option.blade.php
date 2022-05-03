@@ -18,6 +18,13 @@
 </head>
 
 <body id="center_body">
+    <ul class="navbar-nav mr-auto">
+        @if( auth()->check() )
+        <li class="nav-item">
+            <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
+        </li>
+        @endif
+    </ul>
     <div id="option_container">
         <a href="/questionaireTitle/create">
             <h1 id="create_survey" class="options">Create Survey</h1>

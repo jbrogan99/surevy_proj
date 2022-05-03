@@ -45,6 +45,7 @@ class QuestionaireTitleController extends Controller
 
         $input = $request->all();
         $questionaire = Questionaire::create($input);
+
         return redirect()->route('question', ['id' => $questionaire->id]);
     }
 
@@ -57,6 +58,7 @@ class QuestionaireTitleController extends Controller
     public function destroy($id)
     {
         $questionaire = Questionaire::find($id); // find all ID in Questionaire model 
+
         $questionaire->delete(); //delete from db
 
         return redirect('modifyQuestionaire');

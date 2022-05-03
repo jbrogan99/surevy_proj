@@ -25,6 +25,10 @@
 
     <form method="POST" action="/login">
         {{ csrf_field() }}
+        @if($errors->any())
+        <h4>{{$errors->first()}}</h4>
+        @endif
+
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="email">

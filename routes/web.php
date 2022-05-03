@@ -32,7 +32,7 @@ Route::get('/questionaireTitle/create', 'QuestionaireTitleController@create');
 Route::post('/questionaireTitle/create', 'QuestionaireTitleController@store');
 
 Route::get('/register', 'RegisterController@create');
-Route::post('register', 'RegisterController@store');
+Route::post('/register', 'RegisterController@store');
 
 Route::get('/login', 'SessionController@create');
 Route::post('/login', 'SessionController@store');

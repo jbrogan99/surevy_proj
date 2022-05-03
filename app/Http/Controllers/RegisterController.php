@@ -25,6 +25,13 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
+        return redirect()->to('/login');
+    }
+
+    public function destroy()
+    {
+        auth()->logout();
+
         return redirect()->to('/');
     }
 }

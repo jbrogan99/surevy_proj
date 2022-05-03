@@ -32,7 +32,6 @@
             <tbody>
                 <tr>
                     @foreach($questionaires as $questionaire)
-
                     @foreach($questionaire->question as $question)
                     <td>{{ $questionaire->title}}</td>
                     <td>{{ $question->question_title}}</td>
@@ -42,8 +41,8 @@
                     @if(is_null($questionOption->userAnswer))
                     @else
                     <td>{{ $questionOption->userAnswer->answer}}</td>
+                    @endif
                 </tr>
-                @endif
                 @endforeach
                 @endforeach
                 @endforeach
