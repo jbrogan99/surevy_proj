@@ -34,16 +34,16 @@
                 <div id="container_questionaire1">
                     <h4>Enter Answer:</h4>
                     <div id="container_answers">
-                        <label for="question_option" name="question_option"> Answer 1:
-                            <input type="text" id="question_option" class="answer_options" placeholder="Add Answer" name="question_option">
-                        </label><br>
-                        <label for="question_option2"> Answer 2:
-                            <input type="text" id="question_option2" class="answer_options" placeholder="Add Answer" name="question_option2">
-                        </label><br>
+                        <!-- <label for="question_option" value="question_option" name="question_option"> Answer 1: </label> -->
+                        <input type="text" id="question_option" class="answer_options" placeholder="Add Answer" name="question_option">
+                        <br>
+                        <!-- <label for="question_option2" value="question_option2"> Answer 2: </label> -->
+                        <input type="text" id="question_option2" class="answer_options" placeholder="Add Answer" name="question_option2">
+                        <br>
 
                         <input type="hidden" id="question_id" name="question_id">
                         <input type="hidden" id="questionaire_id" name="questionaire_id">
-                        <input type="submit" id="submit_answer" onvalue="submit">
+                        <input type="submit" id="submit_answer" value="submit">
             </form>
         </div>
     </div>
