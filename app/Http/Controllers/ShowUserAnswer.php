@@ -12,6 +12,10 @@ class ShowUserAnswer extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //This function will return a view passing the attributes from the UserAnswer model
+
+
     public function index()
     {
         $userAnswer = UserAnswer::all();

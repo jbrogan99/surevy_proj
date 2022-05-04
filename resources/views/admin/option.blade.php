@@ -18,19 +18,12 @@
 </head>
 
 <body id="center_body">
-    <ul class="navbar-nav mr-auto">
-        @if( auth()->check() )
-        <li class="nav-item">
-            <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
-        </li>
-        @endif
-    </ul>
     <div id="option_container">
         <a href="/questionaireTitle/create">
-            <h1 id="create_survey" class="options">Create Survey</h1>
+            <h1 id="create_survey" class="options">Create Questionnaire</h1>
         </a>
         <a href="/modifyQuestionaire">
-            <h1 id="modify_survey" class="options">Modify Existing Survey</h1>
+            <h1 id="modify_survey" class="options">Modify Existing Questionnaire</h1>
         </a>
         <a href="/viewResponses">
             <h1 id="responses" class="options">View Responses</h1>

@@ -11,8 +11,10 @@ class EndOfQuestionaireController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //return to endOfQuestionaire page
     public function index()
     {
-        return view('/endOfQuestionaire'); //return to endOfQuestionaire page
+        return view('/endOfQuestionaire');
     }
 }

@@ -11,7 +11,12 @@ class RegisterController extends Controller
     {
         return view('admin/createRegister');
     }
-
+    /**
+     * This function will validate user input
+     * Get an instance of the current request 
+     * Authenticate user 
+     * Redirect 
+     */
 
     public function store()
     {
@@ -27,6 +32,8 @@ class RegisterController extends Controller
 
         return redirect()->to('/login');
     }
+
+    // This function log out a user 
 
     public function destroy()
     {

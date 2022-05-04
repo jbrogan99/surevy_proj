@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-
+                <!--for loops that loop round each requirment to display in the view reponses table -->
                 @foreach($questionaires as $questionaire)
                 @foreach($questionaire->question as $question)
                 @foreach($question->questionOptions as $questionOption)
@@ -41,8 +41,9 @@
                     <td>{{ $questionOption->question_option}}</td>
                     <td>{{ $questionOption->question_option2}}</td>
                     @if(is_null($userAnswer))
+                    <!--If there is no user answer, do nothing -->
                     @else
-                    <td>{{ $userAnswer->answer}}</td>
+                    <td>{{ $userAnswer->answer}}</td> <!-- else add it to the table -->
                     @endif
                 </tr>
                 @endforeach

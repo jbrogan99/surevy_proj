@@ -19,7 +19,7 @@
 
 <body class="body_class" id="modify_q_body">
     <a href="/option"><img src="/img/back.jpg" width="200px"> </a>
-    <h1 id="modify_title">Modify Questionaire</h1>
+    <h1 id="modify_title">Modify Questionnaire</h1>
     <div class="table_container">
         <table id="modify_questionaire_table">
             <thead>

@@ -16,9 +16,14 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * This function will return a view 
+     * Passes the attributes from the Question model
+     */
     public function create(Request $request)
     {
-        $numberOfSavedQuestions = Question::getQuestions($request->id); // get all the questions for the questionaire id
+        $numberOfSavedQuestions = Question::getQuestions($request->id); // get all the questions for the given questionaire id
 
         return view('admin/createQuestion', ['numberOfSavedQuestions' => $numberOfSavedQuestions]); // return the create question view so admin can create a new question
     }
@@ -28,6 +33,13 @@ class QuestionController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     */
+
+    /**
+     * This function will validate user input
+     * Get the request from the user
+     * Store in DB 
+     * Redirect the user to passing through varibales from the Question model. 
      */
     public function store(Request $request)
     {

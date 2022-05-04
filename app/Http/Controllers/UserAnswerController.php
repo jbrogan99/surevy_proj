@@ -16,10 +16,15 @@ class UserAnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * This function grabs the ID from each Model
+     * Passes the data back to the view 
+     */
     public function index($questionaireId, $questionId, $questionOptionId) //ID paramaters
     {
-        $questionaires = Questionaire::find($questionaireId); // assign id from all models to variables
-        $question = Question::find($questionId); // returns the model that has a primary key matching the given key
+        $questionaires = Questionaire::find($questionaireId);
+        $question = Question::find($questionId);
         $questionOption = QuestionOption::find($questionOptionId);
         return view('questionaire_answers')->with(['questionaire' => $questionaires, 'question' => $question, 'questionOption' => $questionOption]);
     }
@@ -39,6 +44,12 @@ class UserAnswerController extends Controller
      * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     */
+
+    /**
+     * This function saves the user answer, 
+     * Determines the IDs of the next question and question option the user must answer
+     * Redirects back to the user answers page with the next question and question option.
      */
     public function store(Request $request)
     {
@@ -68,6 +79,11 @@ class UserAnswerController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     */
+
+    /**
+     * Finds the ID of the Questionaire 
+     * Removes from the DB
      */
     public function destroy($id)
     {

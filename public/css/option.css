@@ -39,11 +39,6 @@ a:hover {
     justify-content: center;
     margin-top: 100px;
 }
-/* 
-#create_q_body {
-    display: flex;
-    justify-content: center;
-} */
 
 #answer_2 {
     margin-bottom: 10px;
@@ -81,10 +76,6 @@ a:hover {
     padding: 20px;
 }
 
-/* #add_q_body {
-    display: flex;
-    align-items: center;
-} */
 button#finish_survey {
     display: none;
 }

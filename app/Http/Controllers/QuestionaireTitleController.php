@@ -12,11 +12,15 @@ class QuestionaireTitleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /**This function will return a view passing the attributes 
+     *     from the questionaires function within the questionaire model
+     */
     public function index()
     {
         $questionaire = new Questionaire();
         $questionaires = $questionaire->questionaires();
-        //dd($questionaires);
+
         return view('admin/viewResponses')->with('questionaires', $questionaires);
     }
 
@@ -36,6 +40,12 @@ class QuestionaireTitleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * This function will validate user input
+     * Get the request from the user
+     * Redirect the user to passing through varibales from the Questionaire model. 
+     */
     public function store(Request $request)
     {
 
@@ -54,6 +64,11 @@ class QuestionaireTitleController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     */
+
+    /**
+     * Finds id in questionaire model 
+     * Deletes ID from database  
      */
     public function destroy($id)
     {

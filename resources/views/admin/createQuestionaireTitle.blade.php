@@ -31,7 +31,7 @@
     @endif
     <div class="surevy_main_container">
         <div class="surevy_title_container">
-            <h2 id="s_title">Add Questionaire Title:</h2>
+            <h2 id="s_title">Add Questionnaire Title:</h2>
 
             <form method="post" action="/questionaireTitle/create" enctype="multipart/form-data">
                 {{ csrf_field() }}

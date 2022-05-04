@@ -14,7 +14,7 @@ class UserAnswer extends Model
         'answer'
 
     ];
-
+    //defines the relationship between the User Answer and questionOption
     public function questionOption()
     {
         return $this->belongsTo('App\QuestionOption');

@@ -23,6 +23,14 @@ class QuestionOptionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * This function will validate user input
+     * Get the request from the user
+     * Save the model 
+     * Redirect the user, passing through varibales from the Questionaire model. 
+     */
+
     public function store(Request $request)
     {
 

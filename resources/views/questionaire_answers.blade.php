@@ -21,7 +21,7 @@
     <div class="surevy_main_container">
         <div class="surevy_title_container">
             <h1 id="answer_page_questionaire_title">{{$questionaire->title}}</h1>
-
+            <!--form for submitting user answers -->
             {!! Form::open(['method' => 'POST', 'route' => ['createUserAnswer']]) !!}
             <h2 id="answer_page_question_title">{{$question->question_title}}:</h2>
             <div class="block">

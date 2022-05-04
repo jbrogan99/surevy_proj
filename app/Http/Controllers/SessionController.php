@@ -15,6 +15,11 @@ class SessionController extends Controller
         return view('admin/createSession');
     }
 
+    /**
+     * Creates a session for the admin 
+     * This function will check to see whether the admin user name and password  matches the one in the DB
+     * Either log them in or redirect them back to current page with an error message  
+     */
     public function store()
     {
 
@@ -26,7 +31,7 @@ class SessionController extends Controller
 
         return redirect()->to('/option');
     }
-
+    // log out function 
     public function destroy()
     {
         auth()->logout();

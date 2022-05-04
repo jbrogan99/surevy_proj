@@ -10,21 +10,15 @@ class Questionaire extends Model
         'title',
         'id'
     ];
-
+    //defines the relationship between the questionaire and question
     public function question()
     {
         return $this->hasMany('App\Question');
     }
-
+    //returns question, question option and user answer 
     public function questionaires()
     {
-        // $this->with('question', function($questionQueryBuilder) {
-        //     $questionQueryBuilder->select('question_title')->with('questionOption', function($questionOptionQueryBuilder) {
-        //         $questionOptionQueryBuilder->select('question_option', 'question_option2')->with('userAnswer', function($userAnswerQueryBuilder) {
-        //             $userAnswerQueryBuilder->select()
-        //         })
-        //     })
-        // });
+
         return $this->with(['question.questionOptions.userAnswer'])->get();
     }
 }

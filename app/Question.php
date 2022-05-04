@@ -7,17 +7,18 @@ use Illuminate\Support\Facades\DB;
 
 class Question extends Model
 {
+    // allows mass assigment 
     protected $fillable = [
         'question_title',
         'questionaire_id',
         'id'
     ];
-
+    //defines the relationship between the question and question options
     public function questionOptions()
     {
         return $this->hasMany('App\QuestionOption');
     }
-
+    //defines the relationship between the question and questionnaire
     public function questionaire()
     {
         return $this->belongsTo('App\Questionaire');
@@ -45,7 +46,7 @@ class Question extends Model
     // The next question id will be the one after the current question 
     // because each questions id is numerically bigger than the last one.
     // An easier way would have been to add another column the questions table
-    // which points to the ID of the next question. Didn't have time.
+    // which points to the ID of the next question. 
     public static function getNextQuestionId($questionId, $questionaireId)
     {
         $questions = Question::getQuestions($questionaireId);

@@ -22,24 +22,15 @@
     <h2>Register</h2>
     <form method="POST" action="/register">
         {{ csrf_field() }}
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name">
-        </div>
 
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email">
-        </div>
+        <label for="name">Name:</label>
+        <input type="text" class="form-register" id="name" name="name">
+        <label for="email">Email:</label>
+        <input type="email" class="form-register" id="email" name="email">
+        <label for="password">Password:</label>
+        <input type="password" class="form-register" id="password" name="password">
+        <button style="cursor:pointer" type="submit" class="btn btn-primary">Submit</button>
 
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-
-        <div class="form-group">
-            <button style="cursor:pointer" type="submit" class="btn btn-primary">Submit</button>
-        </div>
 
     </form>
 

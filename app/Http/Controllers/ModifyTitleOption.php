@@ -12,10 +12,14 @@ class ModifyTitleOption extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * This function will return a view passing the attributes from the questionaire model
+     */
     public function index()
     {
-        $questionaire = Questionaire::all(); // gets all model attributes
+        $questionaire = Questionaire::all();
 
-        return view('admin/modifyExistingQuestionaire')->with('questionaire', $questionaire); //assigns string to variable 
+        return view('admin/modifyExistingQuestionaire')->with('questionaire', $questionaire);
     }
 }

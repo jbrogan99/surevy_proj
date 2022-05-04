@@ -11,6 +11,9 @@ class CreateQuestionairesTable extends Migration
      *
      * @return void
      */
+    /**
+     * Defines the columns and attributes that will be made in the DB 
+     */
     public function up()
     {
         Schema::create('questionaires', function (Blueprint $table) {
